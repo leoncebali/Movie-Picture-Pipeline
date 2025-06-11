@@ -297,7 +297,7 @@ cd starter/frontend
 npm ci
 
 # Run local development server with hot reloading and point to the backend default
-REACT_APP_MOVIE_API_URL=http://localhost:5000 npm start
+REACT_APP_MOVIE_API_URL=http://localhost:5001 npm start
 ```
 
 To build the frontend application for a production deployment, they use the following commands:
@@ -306,12 +306,12 @@ To build the frontend application for a production deployment, they use the foll
 # Build the image
 # NOTE: Make sure the image is built with the URL of the backend system.
 # The URL below would be the default backend URL when running locally
-docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:latest .
+docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5001 --tag=mp-frontend:latest .
 
 docker run --name mp-frontend -p 3000:3000 -d mp-frontend]
 
 # Open the browser to localhost:3000 and you should see the list of movies,
-# provided the backend is already running and available on localhost:5000
+# provided the backend is already running and available on localhost:5001
 ```
 
 ### Deploy Kubernetes manifests
@@ -434,10 +434,10 @@ cd starter/backend
 docker build --tag mp-backend:latest .
 
 # Run the image
-docker run -p 5000:5000 --name mp-backend -d mp-backend
+docker run -p 5001:5001 --name mp-backend -d mp-backend
 
 # Check the running application
-curl http://localhost:5000/movies
+curl http://localhost:5001/movies
 
 # Review logs
 docker logs -f mp-backend
