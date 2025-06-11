@@ -9,3 +9,5 @@ override.tf.json
 *_override.tf.json
 setup/terraform/.terraform.lock.hcl
 setup/terraform/terraform.tfstate
+.DS_Store
+setup/.DS_Store
